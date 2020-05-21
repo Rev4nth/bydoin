@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body style="margin: 80px;">
+    <h5>Todos</h5>
+    <input type="text" id="textInput" /><button onclick="getInput()">
+      Add
+    </button>
+    <ul id="todos"></ul>
+  </body>
+  <script>
+    var todos = ["Wake up at 6:00 am", "Go for a walk", "Drink Coffee"];
+    function loadData() {
+      var todosDiv = document.querySelector("#todos");
+      for (var i = 0; i < todos.length; i++) {
+        var liElement = document.createElement("li");
+        liElement.innerHTML = todos[i];
+        todosDiv.appendChild(liElement);
+      }
+    }
+    loadData();
+    function getInput() {
+      const textInput = document.getElementById("textInput").value;
+      todos.push(textInput);
+      var todosDiv = document.querySelector("#todos");
+      todosDiv.innerHTML = "";
+      loadData();
+    }
+  </script>
+</html>
